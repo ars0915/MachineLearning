@@ -69,11 +69,15 @@ a2 = [ones(size(a2,1),1) a2];
 h = sigmoid(a2*Theta2');
 yVec = zeros(m,num_labels);
 
+
 for i = 1:m
 	yVec(i,y(i)) = 1;
 end
 
-	J = 1/m * sum(sum(-yVec.*log(h) - (1-yVec).*log(1-h)));
+J = 1/m * sum(sum(-yVec.*log(h) - (1-yVec).*log(1-h))) + ...
+	lambda/(2*m) * [sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2))];
+
+
 
 
 
