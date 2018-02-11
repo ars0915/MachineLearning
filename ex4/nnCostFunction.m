@@ -73,9 +73,7 @@ for i = 1:m
 	yVec(i,y(i)) = 1;
 end
 
-for c = 1:num_labels
 	J = 1/m * sum(sum(-yVec.*log(h) - (1-yVec).*log(1-h)));
-end
 
 
 
